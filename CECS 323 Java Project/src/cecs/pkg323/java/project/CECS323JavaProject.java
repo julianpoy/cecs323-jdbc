@@ -35,34 +35,20 @@ public class CECS323JavaProject {
         else
             return input;
     }
-    
-    public static void main(String[] args) {
+
+    public static void mainMenu(Connection conn){
         Scanner in = new Scanner(System.in);
-        System.out.print("Name of the database (not the user account): ");
-        DBNAME = in.nextLine();
-        System.out.print("Database user name: ");
-        USER = in.nextLine();
-        System.out.print("Database password: ");
-        PASS = in.nextLine();
-        //Constructing the database URL connection string
-        DB_URL = DB_URL + DBNAME + ";user="+ USER + ";password=" + PASS;
-        Connection conn = null; //initialize the connection
+        
         PreparedStatement pstmt = null;
+
         try {
-            //STEP 2: Register JDBC driver
-            Class.forName("org.apache.derby.jdbc.ClientDriver");
+            // String menuChoice = USER = in.nextLine();
 
-            //STEP 3: Open a connection
-            System.out.println("Connecting to database...");
-            conn = DriverManager.getConnection(DB_URL);
+            // switch(menuChoice){
+            //     case "1":
 
-//            String menuChoice = USER = in.nextLine();
-//            
-//            switch(menuChoice){
-//                case "1":
-//                    
-//                    break;
-//            }
+            //         break;
+            // }
             
             //STEP 4: Execute a query
             System.out.println("Creating statement...");
@@ -90,6 +76,32 @@ public class CECS323JavaProject {
             //STEP 6: Clean-up environment
             rs.close();
             pstmt.close();
+        } catch (SQLException ex){};
+    }
+    
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        System.out.print("Name of the database (not the user account): ");
+        DBNAME = in.nextLine();
+        System.out.print("Database user name: ");
+        USER = in.nextLine();
+        System.out.print("Database password: ");
+        PASS = in.nextLine();
+        //Constructing the database URL connection string
+        DB_URL = DB_URL + DBNAME + ";user="+ USER + ";password=" + PASS;
+
+        Connection conn = null; //initialize the connection
+
+        try {
+            //STEP 2: Register JDBC driver
+            Class.forName("org.apache.derby.jdbc.ClientDriver");
+
+            //STEP 3: Open a connection
+            System.out.println("Connecting to database...");
+            conn = DriverManager.getConnection(DB_URL);
+
+            mainMenu(conn);
+
             conn.close();
         } catch (SQLException se) {
             //Handle errors for JDBC
@@ -100,12 +112,6 @@ public class CECS323JavaProject {
         } finally {
             //finally block used to close resources
             try {
-                if (pstmt != null) {
-                    pstmt.close();
-                }
-            } catch (SQLException se2) {
-            }// nothing we can do
-            try {
                 if (conn != null) {
                     conn.close();
                 }
@@ -113,6 +119,9 @@ public class CECS323JavaProject {
                 se.printStackTrace();
             }//end finally try
         }//end try
+        
+        
+
         System.out.println("Goodbye!");
     }//end main
 }//end FirstExample}
