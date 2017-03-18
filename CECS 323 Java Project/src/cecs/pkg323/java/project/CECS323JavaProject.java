@@ -12,14 +12,6 @@ public class CECS323JavaProject {
     static String USER;
     static String PASS;
     static String DBNAME;
-    //This is the specification for the printout that I'm doing:
-    //each % denotes the start of a new field.
-    //The - denotes left justification.
-    //The number indicates how wide to make the field.
-    //The "s" denotes that it's a string.  All of our output in this test are 
-    //strings, but that won't always be the case.
-    static final String displayFormat="%-15s%-15s%-15s%-15s\n";
-// JDBC driver name and database URL
     static final String JDBC_DRIVER = "org.apache.derby.jdbc.ClientDriver";
     static String DB_URL = "jdbc:derby://localhost:1527/";
 //            + "testdb;user=";
@@ -41,6 +33,7 @@ public class CECS323JavaProject {
         
         PreparedStatement pstmt = null;
         ResultSet rs = null;
+        String displayFormat = null;
 
         try {
             System.out.println("==========================");
@@ -56,6 +49,8 @@ public class CECS323JavaProject {
                         "SELECT groupName, headWriter, yearFormed, subject FROM WritingGroup"
                     );
                     rs = pstmt.executeQuery();
+
+                    displayFormat = "%-15s%-15s%-15s%-15s\n";
 
                     System.out.printf(displayFormat, "groupName", "headWriter", "yearFormed", "subject");
                     while (rs.next()) {
@@ -82,6 +77,8 @@ public class CECS323JavaProject {
                     pstmt.setString(1, desiredGroupName);
 
                     rs = pstmt.executeQuery();
+
+                    displayFormat = "%-15s%-15s%-15s%-15s\n";
 
                     System.out.printf(displayFormat, "groupName", "headWriter", "yearFormed", "subject");
                     while (rs.next()) {
