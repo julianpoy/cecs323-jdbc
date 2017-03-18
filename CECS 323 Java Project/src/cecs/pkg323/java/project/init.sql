@@ -18,7 +18,7 @@ CREATE TABLE Books(
   groupName varchar(200) NOT NULL,
   bookTitle varchar(200) NOT NULL,
   publisherName varchar(200) NOT NULL,
-  yearPublished varchar(200) NOT NULL,
+  yearPublished integer NOT NULL,
   numberPages integer NOT NULL,
   PRIMARY KEY(groupName, bookTitle),
   FOREIGN KEY(groupName) REFERENCES WritingGroup(groupName),
@@ -30,3 +30,6 @@ INSERT INTO WritingGroup (groupName, headWriter, yearFormed, subject)
 
 INSERT INTO Publishers (publisherName, publisherAddress, publisherPhone, publisherEmail)
     VALUES ('CenTech Publishing Co.', '1000 South Lane, Utah', '562-111-1111', 'contact@centech.com');
+
+INSERT INTO Books (groupName, bookTitle, publisherName, yearPublished, numberPages)
+    VALUES ('Science Club', 'Guide to the Galaxy', 'CenTech Publishing Co.', 2014, 300);
