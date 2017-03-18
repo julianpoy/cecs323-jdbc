@@ -42,6 +42,7 @@ public class CECS323JavaProject {
             System.out.println("2. List info for specific group");
             System.out.println("3. List all publishers");
             System.out.println("4. List info for specific publisher");
+            System.out.println("5. List all books");
 
             String menuChoice = in.nextLine();
 
@@ -143,6 +144,34 @@ public class CECS323JavaProject {
                         //Display values
                         System.out.printf(displayFormat, 
                                 dispNull(publisherName), dispNull(publisherAddress), dispNull(publisherPhone), dispNull(publisherEmail));
+                    }
+
+                    mainMenu(conn);
+                    break;
+                case "5":
+                    pstmt = conn.prepareStatement(
+                        "SELECT groupName, bookTitle, publisherName, yearPublished, numberPages FROM Books"
+                    );
+                    rs = pstmt.executeQuery();
+
+                    displayFormat = "%-25s%-25s%-35s%-20s%-10s\n";
+
+                    System.out.printf(displayFormat, "groupName", "bookTitle", "publisherName", "yearPublished", "numberPages");
+                    while (rs.next()) {
+                        //Retrieve by column name
+                        String groupName = rs.getString("groupName");
+                        String bookTitle = rs.getString("bookTitle");
+                        String publisherName = rs.getString("publisherName");
+                        String yearPublished = rs.getString("yearPublished");
+                        String numberPages = rs.getString("numberPages");
+
+                        //Display values
+                        System.out.printf(displayFormat, 
+                                dispNull(groupName),
+                                dispNull(bookTitle),
+                                dispNull(publisherName),
+                                dispNull(yearPublished),
+                                dispNull(numberPages));
                     }
 
                     mainMenu(conn);
