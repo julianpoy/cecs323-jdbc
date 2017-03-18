@@ -24,3 +24,9 @@ CREATE TABLE Books(
   FOREIGN KEY(groupName) REFERENCES WritingGroup(groupName),
   FOREIGN KEY(publisherName) REFERENCES Publishers(publisherName)
 );
+
+INSERT INTO WritingGroup (groupName, headWriter, yearFormed, subject)
+    VALUES ('Science Club', 'James Hall', date(2015), 'Science');
+
+INSERT INTO Publishers (publisherName, publisherAddress, publisherPhone, publisherEmail)
+    VALUES ('CenTech Publishing Co.', '1000 South Lane, Utah', '562-111-1111', 'contact@centech.com');
