@@ -18,7 +18,7 @@ public class CECS323JavaProject {
     //The number indicates how wide to make the field.
     //The "s" denotes that it's a string.  All of our output in this test are 
     //strings, but that won't always be the case.
-    static final String displayFormat="%-5s%-15s%-15s%-15s\n";
+    static final String displayFormat="%-15s%-15s%-15s%-15s\n";
 // JDBC driver name and database URL
     static final String JDBC_DRIVER = "org.apache.derby.jdbc.ClientDriver";
     static String DB_URL = "jdbc:derby://localhost:1527/";
@@ -47,7 +47,7 @@ public class CECS323JavaProject {
         //Constructing the database URL connection string
         DB_URL = DB_URL + DBNAME + ";user="+ USER + ";password=" + PASS;
         Connection conn = null; //initialize the connection
-        Statement stmt = null;  //initialize the statement that we're using
+        PreparedStatement pstmt = null;
         try {
             //STEP 2: Register JDBC driver
             Class.forName("org.apache.derby.jdbc.ClientDriver");
@@ -56,9 +56,17 @@ public class CECS323JavaProject {
             System.out.println("Connecting to database...");
             conn = DriverManager.getConnection(DB_URL);
 
+//            String menuChoice = USER = in.nextLine();
+//            
+//            switch(menuChoice){
+//                case "1":
+//                    
+//                    break;
+//            }
+            
             //STEP 4: Execute a query
             System.out.println("Creating statement...");
-            PreparedStatement pstmt = conn.prepareStatement(
+            pstmt = conn.prepareStatement(
                 "SELECT groupName, headWriter, yearFormed, subject FROM WritingGroup"
             );
             // pstmt.setBigDecimal(1, 153833.00)
@@ -67,21 +75,21 @@ public class CECS323JavaProject {
             ResultSet rs = pstmt.executeQuery();
 
             //STEP 5: Extract data from result set
-            System.out.printf(displayFormat, "ID", "First Name", "Last Name", "Phone #");
+            System.out.printf(displayFormat, "groupName", "headWriter", "yearFormed", "subject");
             while (rs.next()) {
                 //Retrieve by column name
-                String id = rs.getString("au_id");
-                String phone = rs.getString("phone");
-                String first = rs.getString("au_fname");
-                String last = rs.getString("au_lname");
+                String groupName = rs.getString("groupName");
+                String headWriter = rs.getString("headWriter");
+                String yearFormed = rs.getString("yearFormed");
+                String subject = rs.getString("subject");
 
                 //Display values
                 System.out.printf(displayFormat, 
-                        dispNull(id), dispNull(first), dispNull(last), dispNull(phone));
+                        dispNull(groupName), dispNull(headWriter), dispNull(yearFormed), dispNull(subject));
             }
             //STEP 6: Clean-up environment
             rs.close();
-            stmt.close();
+            pstmt.close();
             conn.close();
         } catch (SQLException se) {
             //Handle errors for JDBC
@@ -92,8 +100,8 @@ public class CECS323JavaProject {
         } finally {
             //finally block used to close resources
             try {
-                if (stmt != null) {
-                    stmt.close();
+                if (pstmt != null) {
+                    pstmt.close();
                 }
             } catch (SQLException se2) {
             }// nothing we can do
