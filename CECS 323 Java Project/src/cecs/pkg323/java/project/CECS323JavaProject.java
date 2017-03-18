@@ -45,6 +45,8 @@ public class CECS323JavaProject {
             System.out.println("5. List all books");
             System.out.println("6. List info for specific book");
 
+            System.out.println("10. Quit");
+
             //Add a line break
             System.out.println("");
 
@@ -212,6 +214,8 @@ public class CECS323JavaProject {
 
                     mainMenu(conn);
                     break;
+                case "10":
+                    break;
                 default:
                     System.out.println("That did not match the menu options.");
                     mainMenu(conn);
@@ -221,8 +225,8 @@ public class CECS323JavaProject {
             
             // pstmt.setBigDecimal(1, 153833.00)
             // pstmt.setInt(2, 110592)
-            rs.close();
-            pstmt.close();
+            if(rs != null) rs.close();
+            if(pstmt != null) pstmt.close();
         } catch (SQLException ex){};
     }
     
