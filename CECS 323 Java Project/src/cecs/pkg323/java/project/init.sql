@@ -20,7 +20,7 @@ CREATE TABLE Books(
   publisherName varchar(200) NOT NULL,
   yearPublished varchar(200) NOT NULL,
   numberPages integer NOT NULL,
-  PRIMARY KEY(groupName, bookTitle)
+  PRIMARY KEY(groupName, bookTitle),
   FOREIGN KEY(groupName) REFERENCES WritingGroup(groupName),
   FOREIGN KEY(publisherName) REFERENCES Publishers(publisherName)
 );
