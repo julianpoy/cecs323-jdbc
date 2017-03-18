@@ -68,9 +68,11 @@ public class CECS323JavaProject {
                                 dispNull(groupName), dispNull(headWriter), dispNull(yearFormed), dispNull(subject));
                     }
                     rs.close();
+                    mainMenu(conn);
                     break;
                 default:
                     System.out.println("That did not match the menu options.");
+                    mainMenu(conn);
                     return;
             }
             
