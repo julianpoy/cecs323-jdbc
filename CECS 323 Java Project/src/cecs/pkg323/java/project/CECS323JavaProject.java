@@ -216,6 +216,50 @@ public class CECS323JavaProject {
 
                     mainMenu(conn);
                     break;
+                case "7":
+                    System.out.println("Enter book title:");
+                    String bookTitle = in.nextLine();
+                    System.out.println("Enter group name:");
+                    String groupName = in.nextLine();
+                    System.out.println("Enter publisher name:");
+                    String publisherName = in.nextLine();
+
+                    Integer yearPublished = null;
+                    while (yearPublished == null) {
+                        System.out.println("Enter year published:");
+                        String yr = in.nextLine();
+                        try {
+                            yearPublished = Integer.parseInt(yr);
+                        } catch (Exception e) {
+                            System.out.println("Not a valid year. Try again.");
+                        }
+                    }
+
+                    Integer numberPages = null;
+                    while (numberPages == null) {
+                        System.out.println("Enter number of pages:");
+                        String num = in.nextLine();
+                        try {
+                            numberPages = Integer.parseInt(num);
+                        } catch (Exception e) {
+                            System.out.println("Not a valid page. Try again.");
+                        }
+                    }
+
+                    pstmt = conn.prepareStatement(
+                        "INSERT INTO Books (groupName, bookTitle, publisherName, yearPublished, numberPages) VALUES (?, ?, ?, ?, ?)"
+                    );
+                    pstmt.setString(1, groupName);
+                    pstmt.setString(2, bookTitle);
+                    pstmt.setString(3, publisherName);
+                    pstmt.setInt(4, yearPublished);
+                    pstmt.setInt(5, numberPages);
+                    pstmt.execute();
+
+                    System.out.println("Inserted.");
+
+                    mainMenu(conn);
+                    break;
                 case "10":
                     break;
                 default:
@@ -229,7 +273,9 @@ public class CECS323JavaProject {
             // pstmt.setInt(2, 110592)
             if(rs != null) rs.close();
             if(pstmt != null) pstmt.close();
-        } catch (SQLException ex){};
+        } catch (SQLException ex){
+            ex.printStackTrace();
+        };
     }
     
     public static void main(String[] args) {
