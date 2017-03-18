@@ -42,39 +42,42 @@ public class CECS323JavaProject {
         PreparedStatement pstmt = null;
 
         try {
-            // String menuChoice = USER = in.nextLine();
+            System.out.println("==========================");
+            System.out.println("Main Menu");
+            System.out.println("1. List all writing groups");
 
-            // switch(menuChoice){
-            //     case "1":
+            String menuChoice = USER = in.nextLine();
 
-            //         break;
-            // }
+            switch(menuChoice){
+                case "1":
+                    pstmt = conn.prepareStatement(
+                        "SELECT groupName, headWriter, yearFormed, subject FROM WritingGroup"
+                    );
+                    ResultSet rs = pstmt.executeQuery();
+
+                    System.out.printf(displayFormat, "groupName", "headWriter", "yearFormed", "subject");
+                    while (rs.next()) {
+                        //Retrieve by column name
+                        String groupName = rs.getString("groupName");
+                        String headWriter = rs.getString("headWriter");
+                        String yearFormed = rs.getString("yearFormed");
+                        String subject = rs.getString("subject");
+
+                        //Display values
+                        System.out.printf(displayFormat, 
+                                dispNull(groupName), dispNull(headWriter), dispNull(yearFormed), dispNull(subject));
+                    }
+                    rs.close();
+                    break;
+                default:
+                    System.out.println("That did not match the menu options.");
+                    return;
+            }
             
-            //STEP 4: Execute a query
-            System.out.println("Creating statement...");
-            pstmt = conn.prepareStatement(
-                "SELECT groupName, headWriter, yearFormed, subject FROM WritingGroup"
-            );
+            
             // pstmt.setBigDecimal(1, 153833.00)
             // pstmt.setInt(2, 110592)
-
-            ResultSet rs = pstmt.executeQuery();
-
-            //STEP 5: Extract data from result set
-            System.out.printf(displayFormat, "groupName", "headWriter", "yearFormed", "subject");
-            while (rs.next()) {
-                //Retrieve by column name
-                String groupName = rs.getString("groupName");
-                String headWriter = rs.getString("headWriter");
-                String yearFormed = rs.getString("yearFormed");
-                String subject = rs.getString("subject");
-
-                //Display values
-                System.out.printf(displayFormat, 
-                        dispNull(groupName), dispNull(headWriter), dispNull(yearFormed), dispNull(subject));
-            }
-            //STEP 6: Clean-up environment
-            rs.close();
+            
             pstmt.close();
         } catch (SQLException ex){};
     }
