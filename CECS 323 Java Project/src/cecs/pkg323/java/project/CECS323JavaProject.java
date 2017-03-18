@@ -41,6 +41,7 @@ public class CECS323JavaProject {
             System.out.println("1. List all writing groups");
             System.out.println("2. List info for specific group");
             System.out.println("3. List all publishers");
+            System.out.println("4. List info for specific publisher");
 
             String menuChoice = in.nextLine();
 
@@ -100,6 +101,33 @@ public class CECS323JavaProject {
                     pstmt = conn.prepareStatement(
                         "SELECT publisherName, publisherAddress, publisherPhone, publisherEmail FROM Publishers"
                     );
+                    rs = pstmt.executeQuery();
+
+                    displayFormat = "%-25s%-25s%-20s%-20s\n";
+
+                    System.out.printf(displayFormat, "publisherName", "publisherAddress", "publisherPhone", "publisherEmail");
+                    while (rs.next()) {
+                        //Retrieve by column name
+                        String publisherName = rs.getString("publisherName");
+                        String publisherAddress = rs.getString("publisherAddress");
+                        String publisherPhone = rs.getString("publisherPhone");
+                        String publisherEmail = rs.getString("publisherEmail");
+
+                        //Display values
+                        System.out.printf(displayFormat, 
+                                dispNull(publisherName), dispNull(publisherAddress), dispNull(publisherPhone), dispNull(publisherEmail));
+                    }
+
+                    mainMenu(conn);
+                    break;
+                case "4":
+                    System.out.println("Enter publisher name:");
+                    String desiredPublisherName = in.nextLine();
+
+                    pstmt = conn.prepareStatement(
+                        "SELECT publisherName, publisherAddress, publisherPhone, publisherEmail FROM Publishers WHERE publisherName = ?"
+                    );
+                    pstmt.setString(1, desiredPublisherName);
                     rs = pstmt.executeQuery();
 
                     displayFormat = "%-25s%-25s%-20s%-20s\n";
