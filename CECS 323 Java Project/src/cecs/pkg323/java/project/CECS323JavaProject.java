@@ -46,8 +46,9 @@ public class CECS323JavaProject {
             System.out.println("==========================");
             System.out.println("Main Menu");
             System.out.println("1. List all writing groups");
+            System.out.println("2. List info for specific group");
 
-            String menuChoice = USER = in.nextLine();
+            String menuChoice = in.nextLine();
 
             switch(menuChoice){
                 case "1":
