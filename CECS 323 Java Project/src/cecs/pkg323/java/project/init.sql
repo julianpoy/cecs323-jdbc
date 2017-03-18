@@ -26,7 +26,9 @@ CREATE TABLE Books(
 );
 
 INSERT INTO WritingGroup (groupName, headWriter, yearFormed, subject)
-    VALUES ('Science Club', 'James Hall', date(2015), 'Science');
+    VALUES ('Science Club', 'James Hall', date(2015), 'Science'),
+    VALUES ('Science Fiction Club', 'Aaron Andrews', date(2011), 'Science'),
+    VALUES ('Nature Club', 'Roger Adams', date(2001), 'Nature');
 
 INSERT INTO Publishers (publisherName, publisherAddress, publisherPhone, publisherEmail)
     VALUES ('CenTech Publishing Co.', '1000 South Lane, Utah', '562-111-1111', 'contact@centech.com');
