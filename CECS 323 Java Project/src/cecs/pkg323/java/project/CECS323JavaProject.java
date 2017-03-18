@@ -29,13 +29,16 @@ public class CECS323JavaProject {
     }
 
     public static void mainMenu(Connection conn){
+        //Our input scanner
         Scanner in = new Scanner(System.in);
         
+        //Initialize shared variables
         PreparedStatement pstmt = null;
         ResultSet rs = null;
         String displayFormat = null;
 
         try {
+            //Print out main menu options
             System.out.println("==========================");
             System.out.println("Main Menu");
             System.out.println("1. List all writing groups");
@@ -47,10 +50,9 @@ public class CECS323JavaProject {
 
             System.out.println("10. Quit");
 
+            String menuChoice = in.nextLine();
             //Add a line break
             System.out.println("");
-
-            String menuChoice = in.nextLine();
 
             switch(menuChoice){
                 case "1":
