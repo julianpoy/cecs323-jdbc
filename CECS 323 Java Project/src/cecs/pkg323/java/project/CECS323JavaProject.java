@@ -40,6 +40,7 @@ public class CECS323JavaProject {
         Scanner in = new Scanner(System.in);
         
         PreparedStatement pstmt = null;
+        ResultSet rs = null;
 
         try {
             System.out.println("==========================");
@@ -53,7 +54,33 @@ public class CECS323JavaProject {
                     pstmt = conn.prepareStatement(
                         "SELECT groupName, headWriter, yearFormed, subject FROM WritingGroup"
                     );
-                    ResultSet rs = pstmt.executeQuery();
+                    rs = pstmt.executeQuery();
+
+                    System.out.printf(displayFormat, "groupName", "headWriter", "yearFormed", "subject");
+                    while (rs.next()) {
+                        //Retrieve by column name
+                        String groupName = rs.getString("groupName");
+                        String headWriter = rs.getString("headWriter");
+                        String yearFormed = rs.getString("yearFormed");
+                        String subject = rs.getString("subject");
+
+                        //Display values
+                        System.out.printf(displayFormat, 
+                                dispNull(groupName), dispNull(headWriter), dispNull(yearFormed), dispNull(subject));
+                    }
+
+                    mainMenu(conn);
+                    break;
+                case "2":
+                    System.out.println("Enter group name:");
+                    String desiredGroupName = in.nextLine();
+
+                    pstmt = conn.prepareStatement(
+                        "SELECT groupName, headWriter, yearFormed, subject FROM WritingGroup WHERE groupName = ?"
+                    );
+                    pstmt.setString(1, desiredGroupName);
+
+                    rs = pstmt.executeQuery();
 
                     System.out.printf(displayFormat, "groupName", "headWriter", "yearFormed", "subject");
                     while (rs.next()) {
@@ -79,7 +106,7 @@ public class CECS323JavaProject {
             
             // pstmt.setBigDecimal(1, 153833.00)
             // pstmt.setInt(2, 110592)
-            
+            rs.close();
             pstmt.close();
         } catch (SQLException ex){};
     }
