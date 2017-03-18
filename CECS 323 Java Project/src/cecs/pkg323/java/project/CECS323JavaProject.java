@@ -43,6 +43,10 @@ public class CECS323JavaProject {
             System.out.println("3. List all publishers");
             System.out.println("4. List info for specific publisher");
             System.out.println("5. List all books");
+            System.out.println("6. List info for specific book");
+
+            //Add a line break
+            System.out.println("");
 
             String menuChoice = in.nextLine();
 
@@ -152,6 +156,38 @@ public class CECS323JavaProject {
                     pstmt = conn.prepareStatement(
                         "SELECT groupName, bookTitle, publisherName, yearPublished, numberPages FROM Books"
                     );
+                    rs = pstmt.executeQuery();
+
+                    displayFormat = "%-25s%-25s%-35s%-20s%-10s\n";
+
+                    System.out.printf(displayFormat, "groupName", "bookTitle", "publisherName", "yearPublished", "numberPages");
+                    while (rs.next()) {
+                        //Retrieve by column name
+                        String groupName = rs.getString("groupName");
+                        String bookTitle = rs.getString("bookTitle");
+                        String publisherName = rs.getString("publisherName");
+                        String yearPublished = rs.getString("yearPublished");
+                        String numberPages = rs.getString("numberPages");
+
+                        //Display values
+                        System.out.printf(displayFormat, 
+                                dispNull(groupName),
+                                dispNull(bookTitle),
+                                dispNull(publisherName),
+                                dispNull(yearPublished),
+                                dispNull(numberPages));
+                    }
+
+                    mainMenu(conn);
+                    break;
+                case "6":
+                    System.out.println("Enter book title:");
+                    String desiredBookTitle = in.nextLine();
+
+                    pstmt = conn.prepareStatement(
+                        "SELECT groupName, bookTitle, publisherName, yearPublished, numberPages FROM Books WHERE bookTitle = ?"
+                    );
+                    pstmt.setString(1, desiredBookTitle);
                     rs = pstmt.executeQuery();
 
                     displayFormat = "%-25s%-25s%-35s%-20s%-10s\n";
