@@ -37,9 +37,6 @@ public class CECS323JavaProject {
     }
     
     public static void main(String[] args) {
-        //Prompt the user for the database name, and the credentials.
-        //If your database has no credentials, you can update this code to 
-        //remove that from the connection string.
         Scanner in = new Scanner(System.in);
         System.out.print("Name of the database (not the user account): ");
         DBNAME = in.nextLine();
@@ -61,10 +58,13 @@ public class CECS323JavaProject {
 
             //STEP 4: Execute a query
             System.out.println("Creating statement...");
-            stmt = conn.createStatement();
-            String sql;
-            sql = "SELECT au_id, au_fname, au_lname, phone FROM Authors";
-            ResultSet rs = stmt.executeQuery(sql);
+            PreparedStatement pstmt = conn.prepareStatement(
+                "SELECT groupName, headWriter, yearFormed, subject FROM WritingGroup"
+            );
+            // pstmt.setBigDecimal(1, 153833.00)
+            // pstmt.setInt(2, 110592)
+
+            ResultSet rs = pstmt.executeQuery();
 
             //STEP 5: Extract data from result set
             System.out.printf(displayFormat, "ID", "First Name", "Last Name", "Phone #");
