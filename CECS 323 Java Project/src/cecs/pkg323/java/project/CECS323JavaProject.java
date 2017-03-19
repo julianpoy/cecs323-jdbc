@@ -304,15 +304,16 @@ public class CECS323JavaProject {
                     }
                     break;
                 case "9":
+                    System.out.println("Enter book name:");
                     String bookToRemove = in.nextLine();
                     
                     pstmt = conn.prepareStatement(
-                        "DELETE FROM Books"+
-                        "WHERE bookTitle = ?");
+                        "DELETE FROM Books" +
+                        " WHERE bookTitle = ?");
                     pstmt.setString(1, bookToRemove);
                     pstmt.execute();
                     
-                    System.out.println(bookToRemove + " deleted");
+                    System.out.println(bookToRemove + " deleted.");
 
                     mainMenu(conn);
                     break;
