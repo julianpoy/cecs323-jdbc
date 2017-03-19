@@ -47,6 +47,7 @@ public class CECS323JavaProject {
             System.out.println("4. List info for specific publisher");
             System.out.println("5. List all books");
             System.out.println("6. List info for specific book");
+            System.out.println("7. Insert a new book");
 
             System.out.println("10. Quit");
 
@@ -273,6 +274,9 @@ public class CECS323JavaProject {
             // pstmt.setInt(2, 110592)
             if(rs != null) rs.close();
             if(pstmt != null) pstmt.close();
+        } catch (SQLIntegrityConstraintViolationException ex){
+            System.out.println("That was an invalid entry. Please try again.");
+            mainMenu(conn);
         } catch (SQLException ex){
             ex.printStackTrace();
         };
