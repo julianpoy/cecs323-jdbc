@@ -47,7 +47,8 @@ public class CECS323JavaProject {
             System.out.println("4. List info for specific publisher");
             System.out.println("5. List all books");
             System.out.println("6. List info for specific book");
-            System.out.println("7. Insert a new book");
+            System.out.println("7. Create a new book");
+            System.out.println("8. Create a new publisher");
 
             System.out.println("10. Quit");
 
@@ -258,6 +259,48 @@ public class CECS323JavaProject {
                     pstmt.execute();
 
                     System.out.println("Inserted.");
+
+                    mainMenu(conn);
+                    break;
+                case "8":
+                    System.out.println("Enter publisher name:");
+                    String pubName = in.nextLine();
+                    System.out.println("Enter publisher address:");
+                    String pubAddress = in.nextLine();
+                    System.out.println("Enter publisher phone:");
+                    String pubPhone = in.nextLine();
+                    System.out.println("Enter publisher email:");
+                    String pubEmail = in.nextLine();
+                    
+                    pstmt = conn.prepareStatement(
+                        "INSERT INTO Publishers (publisherName, publisherAddress, publisherPhone, publisherEmail) VALUES (?, ?, ?, ?)"
+                    );
+                    pstmt.setString(1, pubName);
+                    pstmt.setString(2, pubAddress);
+                    pstmt.setString(3, pubPhone);
+                    pstmt.setString(4, pubEmail);
+                    pstmt.execute();
+                    
+                    System.out.println("New publisher created.");
+                    System.out.println("");
+
+                    System.out.println("Do you want this publisher to replace an old publisher? (Y/n):");
+                    String resp = in.nextLine();
+                    if(resp.equals("Y")){
+                        System.out.println("Enter the old publisher name:");
+                        String oldPubName = in.nextLine();
+                        
+                        pstmt = conn.prepareStatement(
+                            "UPDATE Books "
+                                    + "SET publisherName=? "
+                                    + "WHERE publisherName=?"
+                        );
+                        pstmt.setString(1, pubName);
+                        pstmt.setString(2, oldPubName);
+                        pstmt.execute();
+
+                        System.out.println("Updated books to reference new publisher.");
+                    }
 
                     mainMenu(conn);
                     break;
