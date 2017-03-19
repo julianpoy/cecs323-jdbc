@@ -48,7 +48,12 @@ public class CECS323JavaProject {
             System.out.println("5. List all books");
             System.out.println("6. List info for specific book");
             System.out.println("7. Insert a new book");
-
+            
+            //to-do
+            System.out.println("8. Insert a new publisher and update all book "
+                    + "published by one publisher to be published by the new publisher");
+            System.out.println("9. Remove a book specified by the user");
+            
             System.out.println("10. Quit");
 
             String menuChoice = in.nextLine();
@@ -261,6 +266,10 @@ public class CECS323JavaProject {
 
                     mainMenu(conn);
                     break;
+                case "8":
+                    break;
+                case "9":
+                    break;
                 case "10":
                     break;
                 default:
@@ -323,8 +332,6 @@ public class CECS323JavaProject {
             }//end finally try
         }//end try
         
-        
-
         System.out.println("Goodbye!");
     }//end main
 }//end FirstExample}
