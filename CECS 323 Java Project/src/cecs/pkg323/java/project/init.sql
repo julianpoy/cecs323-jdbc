@@ -42,6 +42,9 @@ INSERT INTO WritingGroup (groupName, headWriter, yearFormed, subject)
     VALUES ('Political Activists',  'John Goodman',     date(1997),  'Politics'),
     VALUES ('Ocean and Shore Club', 'Sandy Beach',      date(2008),  'Nature');
 
+/*
+    Added some publisherAddress to the same state for testing purposes.
+*/
 INSERT INTO Publishers (publisherName, publisherAddress, publisherPhone, publisherEmail)
     VALUES ('CenTech Publishing Co.',       '1000 South Lane, Utah',                '562-111-1111',  'contact@centech.com'),
     VALUES ('Pearson Pub. Co.',             '2777 Ximeno Ave, California',          '661-312-8899',  'personpub@pearson.com'),
@@ -60,6 +63,10 @@ INSERT INTO Publishers (publisherName, publisherAddress, publisherPhone, publish
 
     Wondering if adding books with same title but different pub/year/pages
     would be useful for testing. Thoughts? 
+
+    The Books primary key is just the groupName and bookTitle,
+    so maybe we wouldn't want to test for this.
+
     -(As of now this is not the case. If this is changed, delete this comment)
 */
 INSERT INTO Books (groupName, bookTitle, publisherName, yearPublished, numberPages)
