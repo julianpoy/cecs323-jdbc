@@ -302,6 +302,8 @@ public class CECS323JavaProject {
 
                         System.out.println("Updated books to reference new publisher.");
                     }
+                    
+                    mainMenu(conn);
                     break;
                 case "9":
                     System.out.println("Enter book name:");
