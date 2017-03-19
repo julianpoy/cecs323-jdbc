@@ -49,6 +49,7 @@ public class CECS323JavaProject {
             System.out.println("6. List info for specific book");
             System.out.println("7. Create a new book");
             System.out.println("8. Create a new publisher");
+            System.out.println("9. Remove a book");
 
             System.out.println("10. Quit");
 
@@ -301,6 +302,17 @@ public class CECS323JavaProject {
 
                         System.out.println("Updated books to reference new publisher.");
                     }
+                    break;
+                case "9":
+                    String bookToRemove = in.nextLine();
+                    
+                    pstmt = conn.prepareStatement(
+                        "DELETE FROM Books"+
+                        "WHERE bookTitle = ?");
+                    pstmt.setString(1, bookToRemove);
+                    pstmt.execute();
+                    
+                    System.out.println(bookToRemove + " deleted");
 
                     mainMenu(conn);
                     break;
@@ -366,8 +378,6 @@ public class CECS323JavaProject {
             }//end finally try
         }//end try
         
-        
-
         System.out.println("Goodbye!");
     }//end main
 }//end FirstExample}
