@@ -269,6 +269,17 @@ public class CECS323JavaProject {
                 case "8":
                     break;
                 case "9":
+                    String bookToRemove = in.nextLine();
+                    
+                    pstmt = conn.prepareStatement(
+                        "DELETE FROM Books"+
+                        "WHERE bookTitle = ?");
+                    pstmt.setString(1, bookToRemove);
+                    pstmt.execute();
+                    
+                    System.out.println(bookToRemove + " deleted");
+                    
+                    mainMenu(conn);
                     break;
                 case "10":
                     break;
