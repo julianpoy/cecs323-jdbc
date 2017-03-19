@@ -99,8 +99,8 @@ INSERT INTO Books (groupName, bookTitle, publisherName, yearPublished, numberPag
     ('Communist Book Club',  'Critique of Hegels Philosophy',    'Kondasha Pub. Co.',    1987,  490),
     ('Communist Book Club',  'The State and Revolution',         'Pearson Pub. Co.',     1990,  740),
 
-    ('Environmental Readers',  'The Lorax',                          'Person Pub. Co.',          1997,  34),
-    ('Environmental Readers',  'Problems of the Pacific',            'Wiley Pub. Co',            2006,  390),
+    ('Environmental Readers',  'The Lorax',                          'Pearson Pub. Co.',          1997,  34),
+    ('Environmental Readers',  'Problems of the Pacific',            'Wiley Pub. Co.',            2006,  390),
     ('Environmental Readers',  'Climate Change: A Brief History',    'Scholastic Pub. Co.',      2003,  470),
     ('Environmental Readers',  'Desert Solitaire',                   'Random House Pub. Co.',    2009,  330),
     ('Environmental Readers',  'A History of Extinction',            'Houghton Mifflin Pub. Co.',2004,  587),
