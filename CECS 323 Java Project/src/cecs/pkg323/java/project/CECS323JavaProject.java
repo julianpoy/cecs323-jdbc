@@ -39,7 +39,7 @@ public class CECS323JavaProject {
 
         try {
             //Print out main menu options
-            System.out.println("==========================");
+            System.out.println("\n\n==========================");
             System.out.println("Main Menu");
             System.out.println("1. List all writing groups");
             System.out.println("2. List info for specific group");
@@ -300,7 +300,7 @@ public class CECS323JavaProject {
                         pstmt.setString(2, oldPubName);
                         pstmt.execute();
 
-                        System.out.println("Updated books to reference new publisher.");
+                        System.out.println("Updated any books with publisher " + oldPubName + " to reference new publisher.");
                     }
                     
                     mainMenu(conn);
@@ -315,7 +315,7 @@ public class CECS323JavaProject {
                     pstmt.setString(1, bookToRemove);
                     pstmt.execute();
                     
-                    System.out.println(bookToRemove + " deleted.");
+                    System.out.println("Removed any books with the title " + bookToRemove + ".");
 
                     mainMenu(conn);
                     break;
