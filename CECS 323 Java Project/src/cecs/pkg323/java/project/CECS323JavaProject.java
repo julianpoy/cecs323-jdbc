@@ -337,6 +337,7 @@ public class CECS323JavaProject {
             mainMenu(conn);
         } catch (SQLException ex){
             System.out.println("That was an invalid entry. Please try again.");
+            mainMenu(conn);
         };
     }
     
