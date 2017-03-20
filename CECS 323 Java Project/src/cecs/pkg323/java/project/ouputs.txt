@@ -1,0 +1,89 @@
+Output for 1:
+groupName                     headWriter     yearFormed     subject        
+Science Writers               James Hall     1975-07-08     Science        
+Scientists of Fiction         Aaron Andrews  1975-07-04     Fiction        
+Naturalists on Paper          Roger Adams    1975-06-24     Nature         
+Myth and Religion             Rex Texton     1975-07-04     Religion       
+LA Philosophy                 Ryan Shaver    1975-06-30     Philosophy     
+Communist Writers             Joseph Stalin  1975-04-08     Politics       
+Union of Concerned Scientists Al Gore        1975-06-29     Science        
+Politcal USA                  Al Gore        1975-06-23     Politics       
+Political Activists           John Goodman   1975-06-20     Politics       
+Ocean and Shore Club          Sandy Beach    1975-07-01     Nature       
+
+Output for 2 (Science Writers):
+groupName       headWriter     yearFormed     subject        
+Science Writers James Hall     1975-07-08     Science
+
+Output for 3:
+publisherName            publisherAddress         publisherPhone      publisherEmail      
+CenTech Publishing Co.   1000 South Lane, Utah    562-111-1111        contact@centech.com 
+Pearson Pub. Co.         2777 Ximeno Ave, California661-312-8899        personpub@pearson.com
+Random House Pub. Co.    4523 Cherry Lane, New York585-788-2551        random@house.com    
+McGraw-Hill Pub. Co.     2000 Avenida Rotunda, Washington445-251-2115        mcgraw@hill.com     
+Scholastic Pub. Co.      9800 Blueberry Avenue, New York585-455-8900        scholastic@books.com
+Wiley Pub. Co.           27000 Newhall Ave, California661-555-9000        wiley@wileybooks.com
+Kondasha Pub. Co.        6100 Main Street, New York585-727-1211        kondasha@konpub.com 
+Houghton Mifflin Pub. Co.4567 Hill Drive, Oregon  322-544-6999        houghton@mifflin.com
+Cengage Pub. Co.         9000 Swamp Drive, Florida477-963-9663        cengage@floridabooks.com
+Harper Collins Pub. Co.  1234 Snake Road, Texas   211-215-5445        harper@collins.com  
+Simon Pub. Co.           2334 Tree Lane, Pennsylvania544-122-3555        simon@simonpub.com 
+
+Output for 4 (CenTech Publishing Co.):
+publisherName            publisherAddress         publisherPhone      publisherEmail      
+CenTech Publishing Co.   1000 South Lane, Utah    562-111-1111        contact@centech.com 
+
+Output for 5:
+groupName                          bookTitle                               publisherName                      yearPublished       numberPages
+Science Writers                    Guide to the Galaxy                     CenTech Publishing Co.             2014                300       
+Science Writers                    Cosmos                                  Pearson Pub. Co.                   2011                450       
+Science Writers                    The Selfish Gene                        Wiley Pub. Co.                     2005                600       
+Science Writers                    On the Origin of Species                Wiley Pub. Co.                     2009                740       
+Scientists of Fiction              Enders Game                             Scholastic Pub. Co.                1987                330       
+Scientists of Fiction              Neuromancer                             Cengage Pub. Co.                   1999                500       
+Scientists of Fiction              1984                                    Simon Pub. Co.                     1995                460       
+Scientists of Fiction              The Forever War                         Kondasha Pub. Co.                  2001                430       
+Naturalists on Paper               The Snow Leopard                        McGraw-Hill Pub. Co.               2009                200       
+Naturalists on Paper               Silent Spring                           McGraw-Hill Pub. Co.               2003                415       
+Naturalists on Paper               All About Yosemite                      Harper Collins Pub. Co.            2005                230       
+Naturalists on Paper               Pilgrim at Tinker Creek                 Wiley Pub. Co.                     2000                404       
+Myth and Religion                  American Gods                           Random House Pub. Co.              2002                300       
+Myth and Religion                  Mythology                               Random House Pub. Co.              1999                300       
+Myth and Religion                  The Holy Bible                          Houghton Mifflin Pub. Co.          2016                900       
+Myth and Religion                  Mere Christianity                       Houghton Mifflin Pub. Co.          2004                650       
+LA Philosophy                      Meditations on First Philosophy         Wiley Pub. Co.                     2000                433       
+LA Philosophy                      Platos Republic                         CenTech Publishing Co.             2005                300       
+LA Philosophy                      Beyond Good and Evil                    Scholastic Pub. Co.                2002                1001      
+LA Philosophy                      Critique of Pure Reason                 Harper Collins Pub. Co.            2007                800       
+Communist Writers                  Das Kapital                             Wiley Pub. Co.                     2001                750       
+Communist Writers                  Critique of Hegels Philosophy           Kondasha Pub. Co.                  1987                490       
+Communist Writers                  The State and Revolution                Pearson Pub. Co.                   1990                740       
+Communist Writers                  Communist Manifesto                     Pearson Pub. Co.                   1966                500       
+Union of Concerned Scientists      The Lorax                               Pearson Pub. Co.                   1997                34        
+Union of Concerned Scientists      Problems of the Pacific                 Wiley Pub. Co.                     2006                390       
+Union of Concerned Scientists      Climate Change: A Brief History         Scholastic Pub. Co.                2003                470       
+Union of Concerned Scientists      Desert Solitaire                        Random House Pub. Co.              2009                330       
+Union of Concerned Scientists      A History of Extinction                 Houghton Mifflin Pub. Co.          2004                587       
+Politcal USA                       The Prince                              Pearson Pub. Co.                   1977                405       
+Politcal USA                       The Second Treatise Of Government       Wiley Pub. Co.                     1988                877       
+Politcal USA                       A Theory of Justice                     Houghton Mifflin Pub. Co.          2008                766       
+Political Activists                Political Liberalism                    Kondasha Pub. Co.                  2001                377       
+Political Activists                On Libery                               Pearson Pub. Co.                   1971                656       
+Ocean and Shore Club               Moby Dick                               Cengage Pub. Co.                   1989                2000      
+Ocean and Shore Club               The Edge of the Sea                     CenTech Publishing Co.             2005                233       
+Ocean and Shore Club               The Sea Around Us                       Harper Collins Pub. Co.            2017                444       
+Ocean and Shore Club               Under the Sea Wind                      McGraw-Hill Pub. Co.               2011                501       
+Ocean and Shore Club               Ocean                                   Houghton Mifflin Pub. Co.          2007                333 
+
+Output for 6 (The Lorax):
+groupName                          bookTitle                               publisherName                      yearPublished       numberPages
+Union of Concerned Scientists      The Lorax                               Pearson Pub. Co.                   1997                34        
+
+Output for 7:
+Insert only.
+
+Output for 8:
+Insert/modify only.
+
+Output for 9:
+Modify only.
