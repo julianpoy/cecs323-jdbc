@@ -32,13 +32,13 @@ CREATE TABLE Books(
     as well as subject.
 */
 INSERT INTO WritingGroup (groupName, headWriter, yearFormed, subject)
-    VALUES ('Science Club',         'James Hall',       date(2015),  'Science'),
-    ('Science Fiction Club', 'Aaron Andrews',    date(2011),  'Fiction'),
-    ('Nature Club',          'Roger Adams',      date(2001),  'Nature'),
+    VALUES ('Science Writers',         'James Hall',       date(2015),  'Science'),
+    ('Scientists of Fiction', 'Aaron Andrews',    date(2011),  'Fiction'),
+    ('Naturalists on Paper',          'Roger Adams',      date(2001),  'Nature'),
     ('Myth and Religion',    'Rex Texton',       date(2011),  'Religion'),
     ('LA Philosophy',        'Ryan Shaver',      date(2007),  'Philosophy'),
-    ('Communist Book Club',  'Joseph Stalin',    date(1924),  'Politics'),
-    ('Environmental Readers','Al Gore',          date(2006),  'Science'),
+    ('Communist Writers',  'Joseph Stalin',    date(1924),  'Politics'),
+    ('Union of Concerned Scientists','Al Gore',          date(2006),  'Science'),
     ('Politcal USA',         'Al Gore',          date(2000),  'Politics'),
     ('Political Activists',  'John Goodman',     date(1997),  'Politics'),
     ('Ocean and Shore Club', 'Sandy Beach',      date(2008),  'Nature');
@@ -60,20 +60,20 @@ INSERT INTO Publishers (publisherName, publisherAddress, publisherPhone, publish
     ('Simon Pub. Co.',               '2334 Tree Lane, Pennsylvania',         '544-122-3555',  'simon@simonpub.com');
     
 INSERT INTO Books (groupName, bookTitle, publisherName, yearPublished, numberPages)
-    VALUES ('Science Club',  'Guide to the Galaxy',      'CenTech Publishing Co.', 2014,  300),
-    ('Science Club',  'Cosmos',                   'Pearson Pub. Co.',       2011,  450),
-    ('Science Club',  'The Selfish Gene',         'Wiley Pub. Co.',         2005,  600),
-    ('Science Club',  'On the Origin of Species', 'Wiley Pub. Co.',         2009,  740),
+    VALUES ('Science Writers',  'Guide to the Galaxy',      'CenTech Publishing Co.', 2014,  300),
+    ('Science Writers',  'Cosmos',                   'Pearson Pub. Co.',       2011,  450),
+    ('Science Writers',  'The Selfish Gene',         'Wiley Pub. Co.',         2005,  600),
+    ('Science Writers',  'On the Origin of Species', 'Wiley Pub. Co.',         2009,  740),
 
-    ('Science Fiction Club',  'Enders Game',         'Scholastic Pub. Co.',  1987,  330),
-    ('Science Fiction Club',  'Neuromancer',         'Cengage Pub. Co.',     1999,  500),
-    ('Science Fiction Club',  '1984',                'Simon Pub. Co.',       1995,  460),
-    ('Science Fiction Club',  'The Forever War',     'Kondasha Pub. Co.',    2001,  430),
+    ('Scientists of Fiction',  'Enders Game',         'Scholastic Pub. Co.',  1987,  330),
+    ('Scientists of Fiction',  'Neuromancer',         'Cengage Pub. Co.',     1999,  500),
+    ('Scientists of Fiction',  '1984',                'Simon Pub. Co.',       1995,  460),
+    ('Scientists of Fiction',  'The Forever War',     'Kondasha Pub. Co.',    2001,  430),
 
-    ('Nature Club',  'The Snow Leopard',          'McGraw-Hill Pub. Co.',    2009,  200),
-    ('Nature Club',  'Silent Spring',             'McGraw-Hill Pub. Co.',    2003,  415),
-    ('Nature Club',  'All About Yosemite',        'Harper Collins Pub. Co.', 2005,  230),
-    ('Nature Club',  'Pilgrim at Tinker Creek',   'Wiley Pub. Co.',          2000,  404),
+    ('Naturalists on Paper',  'The Snow Leopard',          'McGraw-Hill Pub. Co.',    2009,  200),
+    ('Naturalists on Paper',  'Silent Spring',             'McGraw-Hill Pub. Co.',    2003,  415),
+    ('Naturalists on Paper',  'All About Yosemite',        'Harper Collins Pub. Co.', 2005,  230),
+    ('Naturalists on Paper',  'Pilgrim at Tinker Creek',   'Wiley Pub. Co.',          2000,  404),
 
     ('Myth and Religion',  'American Gods',      'Random House Pub. Co.',        2002,  300),
     ('Myth and Religion',  'Mythology',          'Random House Pub. Co.',        1999,  300),
@@ -85,20 +85,20 @@ INSERT INTO Books (groupName, bookTitle, publisherName, yearPublished, numberPag
     ('LA Philosophy',  'Beyond Good and Evil',               'Scholastic Pub. Co.',      2002,  1001),
     ('LA Philosophy',  'Critique of Pure Reason',            'Harper Collins Pub. Co.',  2007,  800),
 
-    ('Communist Book Club',  'Das Kapital',                      'Wiley Pub. Co.',       2001,  750),
-    ('Communist Book Club',  'Critique of Hegels Philosophy',    'Kondasha Pub. Co.',    1987,  490),
-    ('Communist Book Club',  'The State and Revolution',         'Pearson Pub. Co.',     1990,  740),
+    ('Communist Writers',  'Das Kapital',                      'Wiley Pub. Co.',       2001,  750),
+    ('Communist Writers',  'Critique of Hegels Philosophy',    'Kondasha Pub. Co.',    1987,  490),
+    ('Communist Writers',  'The State and Revolution',         'Pearson Pub. Co.',     1990,  740),
+    ('Communist Writers',  'Communist Manifesto',                 'Pearson Pub. Co.',             1966,  500),
 
-    ('Environmental Readers',  'The Lorax',                          'Pearson Pub. Co.',          1997,  34),
-    ('Environmental Readers',  'Problems of the Pacific',            'Wiley Pub. Co.',            2006,  390),
-    ('Environmental Readers',  'Climate Change: A Brief History',    'Scholastic Pub. Co.',      2003,  470),
-    ('Environmental Readers',  'Desert Solitaire',                   'Random House Pub. Co.',    2009,  330),
-    ('Environmental Readers',  'A History of Extinction',            'Houghton Mifflin Pub. Co.',2004,  587),
+    ('Union of Concerned Scientists',  'The Lorax',                          'Pearson Pub. Co.',          1997,  34),
+    ('Union of Concerned Scientists',  'Problems of the Pacific',            'Wiley Pub. Co.',            2006,  390),
+    ('Union of Concerned Scientists',  'Climate Change: A Brief History',    'Scholastic Pub. Co.',      2003,  470),
+    ('Union of Concerned Scientists',  'Desert Solitaire',                   'Random House Pub. Co.',    2009,  330),
+    ('Union of Concerned Scientists',  'A History of Extinction',            'Houghton Mifflin Pub. Co.',2004,  587),
 
     ('Politcal USA',  'The Prince',                          'Pearson Pub. Co.',             1977,  405),
     ('Politcal USA',  'The Second Treatise Of Government',   'Wiley Pub. Co.',               1988,  877),
     ('Politcal USA',  'A Theory of Justice',                 'Houghton Mifflin Pub. Co.',    2008,  766),
-    ('Politcal USA',  'Communist Manifesto',                 'Pearson Pub. Co.',             1966,  500),
 
     ('Political Activists',  'Political Liberalism',     'Kondasha Pub. Co.',            2001,  377),
     ('Political Activists',  'On Libery',                'Pearson Pub. Co.',             1971,  656),
