@@ -333,10 +333,10 @@ public class CECS323JavaProject {
             if(rs != null) rs.close();
             if(pstmt != null) pstmt.close();
         } catch (SQLIntegrityConstraintViolationException ex){
-            System.out.println("That was an invalid entry. Please try again.");
+            System.out.println("You referenced an invalid item. Please try again.");
             mainMenu(conn);
         } catch (SQLException ex){
-            ex.printStackTrace();
+            System.out.println("That was an invalid entry. Please try again.");
         };
     }
     
