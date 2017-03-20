@@ -366,10 +366,10 @@ public class CECS323JavaProject {
             conn.close();
         } catch (SQLException se) {
             //Handle errors for JDBC
-            se.printStackTrace();
+            System.out.println("Could not connect to specified JDBC database.");
         } catch (Exception e) {
             //Handle errors for Class.forName
-            e.printStackTrace();
+            System.out.println("Could not load jdbc client driver.");
         } finally {
             //finally block used to close resources
             try {
@@ -377,7 +377,7 @@ public class CECS323JavaProject {
                     conn.close();
                 }
             } catch (SQLException se) {
-                se.printStackTrace();
+                System.out.println("Could not end database connection.");
             }//end finally try
         }//end try
         
