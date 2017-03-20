@@ -3,7 +3,7 @@ CREATE TABLE WritingGroup(
   headWriter varchar(200) NOT NULL,
   yearFormed date NOT NULL,
   subject varchar(200) NOT NULL,
-  PRIMARY KEY(groupName)
+  CONSTRAINT groups_pk PRIMARY KEY(groupName)
 );
 
 CREATE TABLE Publishers(
@@ -11,7 +11,7 @@ CREATE TABLE Publishers(
   publisherAddress varchar(500) NOT NULL,
   publisherPhone varchar(200) NOT NULL,
   publisherEmail varchar(200) NOT NULL,
-  PRIMARY KEY(publisherName)
+  CONSTRAINT publishers_fk PRIMARY KEY(publisherName)
 );
 
 CREATE TABLE Books(
@@ -20,9 +20,10 @@ CREATE TABLE Books(
   publisherName varchar(200) NOT NULL,
   yearPublished integer NOT NULL,
   numberPages integer NOT NULL,
-  PRIMARY KEY(groupName, bookTitle),
-  FOREIGN KEY(groupName) REFERENCES WritingGroup(groupName),
-  FOREIGN KEY(publisherName) REFERENCES Publishers(publisherName)
+  CONSTRAINT books_pk PRIMARY KEY(groupName, bookTitle),
+  CONSTRAINT books_uk01 UNIQUE(bookTitle, publisherName),
+  CONSTRAINT books_groups_fk01 FOREIGN KEY(groupName) REFERENCES WritingGroup(groupName),
+  CONSTRAINT books_publishers_fk02 FOREIGN KEY(publisherName) REFERENCES Publishers(publisherName)
 );
 
 /*
@@ -58,17 +59,6 @@ INSERT INTO Publishers (publisherName, publisherAddress, publisherPhone, publish
     ('Harper Collins Pub. Co.',      '1234 Snake Road, Texas',               '211-215-5445',  'harper@collins.com'),
     ('Simon Pub. Co.',               '2334 Tree Lane, Pennsylvania',         '544-122-3555',  'simon@simonpub.com');
     
-/*
-    Note: I have made a few shared books among multiple clubs
-
-    Wondering if adding books with same title but different pub/year/pages
-    would be useful for testing. Thoughts? 
-
-    The Books primary key is just the groupName and bookTitle,
-    so maybe we wouldn't want to test for this.
-
-    -(As of now this is not the case. If this is changed, delete this comment)
-*/
 INSERT INTO Books (groupName, bookTitle, publisherName, yearPublished, numberPages)
     VALUES ('Science Club',  'Guide to the Galaxy',      'CenTech Publishing Co.', 2014,  300),
     ('Science Club',  'Cosmos',                   'Pearson Pub. Co.',       2011,  450),
@@ -110,11 +100,9 @@ INSERT INTO Books (groupName, bookTitle, publisherName, yearPublished, numberPag
     ('Politcal USA',  'A Theory of Justice',                 'Houghton Mifflin Pub. Co.',    2008,  766),
     ('Politcal USA',  'Communist Manifesto',                 'Pearson Pub. Co.',             1966,  500),
 
-    ('Political Activists',  'A Theory of Justice',      'Houghton Mifflin Pub. Co.',    2008,  766),
     ('Political Activists',  'Political Liberalism',     'Kondasha Pub. Co.',            2001,  377),
     ('Political Activists',  'On Libery',                'Pearson Pub. Co.',             1971,  656),
 
-    ('Ocean and Shore Club',  'Climate Change: A Brief History',  'Scholastic Pub. Co.',     2003,  470),
     ('Ocean and Shore Club',  'Moby Dick',                        'Cengage Pub. Co.',        1989,  2000),
     ('Ocean and Shore Club',  'The Edge of the Sea',              'CenTech Publishing Co.',  2005,  233),
     ('Ocean and Shore Club',  'The Sea Around Us',                'Harper Collins Pub. Co.', 2017,  444),
