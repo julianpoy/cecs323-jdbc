@@ -64,7 +64,7 @@ public class CECS323JavaProject {
                     );
                     rs = pstmt.executeQuery();
 
-                    displayFormat = "%-15s%-15s%-15s%-15s\n";
+                    displayFormat = "%-30s%-15s%-15s%-15s\n";
 
                     System.out.printf(displayFormat, "groupName", "headWriter", "yearFormed", "subject");
                     while (rs.next()) {
@@ -92,7 +92,7 @@ public class CECS323JavaProject {
 
                     rs = pstmt.executeQuery();
 
-                    displayFormat = "%-15s%-15s%-15s%-15s\n";
+                    displayFormat = "%-30s%-15s%-15s%-15s\n";
 
                     System.out.printf(displayFormat, "groupName", "headWriter", "yearFormed", "subject");
                     while (rs.next()) {
@@ -165,7 +165,7 @@ public class CECS323JavaProject {
                     );
                     rs = pstmt.executeQuery();
 
-                    displayFormat = "%-25s%-25s%-35s%-20s%-10s\n";
+                    displayFormat = "%-35s%-40s%-35s%-20s%-10s\n";
 
                     System.out.printf(displayFormat, "groupName", "bookTitle", "publisherName", "yearPublished", "numberPages");
                     while (rs.next()) {
@@ -197,7 +197,7 @@ public class CECS323JavaProject {
                     pstmt.setString(1, desiredBookTitle);
                     rs = pstmt.executeQuery();
 
-                    displayFormat = "%-25s%-25s%-35s%-20s%-10s\n";
+                    displayFormat = "%-35s%-40s%-35s%-20s%-10s\n";
 
                     System.out.printf(displayFormat, "groupName", "bookTitle", "publisherName", "yearPublished", "numberPages");
                     while (rs.next()) {
